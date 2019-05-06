@@ -1,58 +1,64 @@
+let arr = [];
 
-let arr =[];
-
-function play(val) {
-    let player = document.getElementById('player')
-    let element = document.getElementById(val)
-    if(player.innerText === "O"){
-        player.innerText = "X"
-        element.innerText = 'O'
-        arr[val] = 'O'
-    }else{
-        player.innerText = "O"
-        element.innerText = 'X'
-        arr[val] = 'X'
-    }    
-    console.log(arr)
-
-
-
-
-
-    if(arr[0] !== undefined &&arr[0] === arr[1] && arr[0] === arr[2] ){
-        alert(`${arr[1]} is the winner👏😜`)
-        return
-        
-    }else if (arr[3] !== undefined && arr[3] === arr[4] && arr[3] === arr[5]){
-        alert(`${arr[3]} is the winner👏😜`)
-        return
-    }else if (arr[6] !== undefined && arr[6] === arr[7] && arr[6]=== arr[8]){
-        alert(`${arr[6]} is the winner👏😜`)
-        return
-    }else if (arr[0] !== undefined && arr[4] === arr[0] && arr[4] === arr[8]){
-        alert(`${arr[0]} is the winner👏😜`)
-        return
-    }else if(arr[2] !== undefined && arr[2] === arr[4] && arr[2] === arr[6] ){
-        alert(`${arr[2]} is the winner👏😜`)
-        return
-    }else if (arr[0] !== undefined && arr[0] === arr[3] && arr[0] === arr[6]){
-        alert(`${arr[0]} is the winner👏😜`)
-        return
-    }else if (arr[1] !== undefined && arr[1] === arr[4] && arr[1] === arr[7]){
-        alert(`${arr[1]} is the winner👏😜`)
-        return
-    }else if (arr[2] !== undefined && arr[2] === arr[5] && arr[2] === arr[8]){
-        alert(`${arr[2]} is the winner👏😜`)
-        return
-    }  
-    let boardFull = true
-  for(let i = 0; i <= 8; i++){
-    if(arr[i] === undefined){
-        boardFull = false
+function play (parameter){
+    let player = document.getElementById('player');
+    let element = document.getElementById(parameter);
+    if(player.innerText === 'X'){
+        player.innerText = 'O';
+        element.innerText ='X';
+        arr += player.innerText;
+    } else {
+        player.innerText = 'X';
+        element.innerText = 'O';
+        arr += player.innerText;
     }
-  }
-  if(boardFull === true){
-    alert("Sorry No Winner 😒")
-  }         
-    
-  }
+    var zero = document.getElementById('0').innerText;
+    var two = document.getElementById('2').innerText;
+    var three = document.getElementById('3').innerText;
+    var four = document.getElementById('4').innerText;
+    var five = document.getElementById('5').innerText;
+    var six = document.getElementById('6').innerText;
+    var seven = document.getElementById('7').innerText;
+    var eight = document.getElementById('8').innerText;
+    var one = document.getElementById('1').innerText;
+    if(zero === "O" && one === "O" && two === "O"){
+        alert("O is the winner");
+        location.reload(true);
+    } else if(zero === "X" && one === "X" && two === "X"){
+        alert("X is the winner");
+        location.reload(true);
+    } else if(zero === 'O' && three === 'O' && six === 'O'){
+        alert("O is the winner");
+        location.reload(true);
+    } else if(zero === 'X' && three === 'X' && six === 'X'){
+        alert("X is the winner");
+        location.reload(true);
+    } else if(zero === 'X' && four === 'X' && eight === 'X'){
+     alert("X is the winner");
+     location.reload(true);
+    } else if(zero === 'O' && four === 'O' && eight === 'O'){
+     alert("O is the winner")
+     location.reload(true);
+    } else if(two === 'O' && four === 'O' && six === 'O'){
+      alert("O is the winner");
+      location.reload(true);
+    } else if(two === 'X' && four === 'X' && six === 'X'){
+      alert("X is the winner")
+      location.reload(true);
+    } else if(two === 'X' && five === 'X' && eight === 'X'){
+        alert("X is the winner")
+      location.reload(true);
+    } else if(two === 'O' && five === 'O' && eight === 'O'){
+        alert("O is the winner");
+        location.reload(true);
+    } else if(six === "O" && seven === "O" && eight === "O"){
+        alert("O is the winner");
+        location.reload(true);
+    } else if(six === 'X' && seven === 'X' && eight === 'X'){
+        alert("X is the winner")
+        location.reload(true);
+    } else if ( arr.length >= 9){
+      alert("CAT is the winner")
+      location.reload(true);
+}
+}
